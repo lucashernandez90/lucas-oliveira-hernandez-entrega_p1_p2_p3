@@ -1,0 +1,8 @@
+PROGRAMA "teste_simples":
+INICIO
+A = 5     
+B = 3     
+C = A * B 
+D = C / B 
+RES = (A * B + B) / C
+FIM

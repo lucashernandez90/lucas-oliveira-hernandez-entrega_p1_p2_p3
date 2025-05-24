@@ -1,0 +1,28 @@
+<programa> ::= <titulo> <inicio> <comando> "\n" <RES> "\n" <fim>
+
+<titulo> ::= "PROGRAMA \"" <ident> "\":" "\n"
+<inicio> ::= "INICIO\n"
+<fim> ::= "FIM"
+
+<RES> ::= "RES" <espaco> "=" <espaco> <expressao>
+
+<comando> ::= <atribuicao>
+            | <comando> "\n" <comando>
+
+<atribuicao> ::= <espaco> <ident> <espaco> "=" <espaco> <expressao>
+
+<expressao> ::= <expressao1> ( <espaco> <operador_soma> <espaco> <expressao1> )*
+<expressao1> ::= <expressao2> ( <espaco> <operador_mult> <espaco> <expressao2> )*
+<expressao2> ::= <numero> | <ident> | "(" <espaco> <expressao> <espaco> ")"
+
+<operador_soma> ::= "+" | "-"
+<operador_mult> ::= "*" | "/"
+
+<espaco> ::= (" " | "\t")*
+
+<ident> ::= ([a-z] | [A-Z])+
+
+<numero> ::= <positivo> | <negativo>
+<positivo> ::= ("0" | [1-9] [0-9]*) ("," [0-9]+)? <cientifico>?
+<negativo> ::= "-" <positivo>
+<cientifico> ::= "e" "-"? [1-9] [0-9]*
